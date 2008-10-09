@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Device Atlas Demonstration (mobile)</title>
+    </head>
+    <body style="font-family: Arial, sans-serif; margin:0px;">
+        <div style="width: 100%; background-color:#5BADD6; color: #fff; padding: 5px;">
+            <span style="color: #fff; font-size: 2.5em; color: #323232">DeviceAtlas</span>
+            Google App Engine Test Page
+        </div>
+        
+        <div style="margin: 10px;">
+            <strong>Detected UA string:</strong> {{ ua }}<br/>
+            <strong>DeviceAtlas version:</strong> {{ apiRevision }}<br/>
+
+            {% if imgSrc %}
+                <img src="{{ imgSrc }}" alt="Device Image" />
+            {% else %}
+                <p>No image available</p>
+            {% endif %}
+            <p>Mobile device detected!</p>
+            <p> 
+            <strong>Available Properties</strong>
+            </p>
+            <table style="font-size:0.9em;">
+            {% for prop in props.items %}
+                <tr style="background-color: #{% cycle fff,f8f8f8 %};">
+                    <td>
+                        <strong>{{ prop.0 }}</strong>
+                    </td>
+                    <td>
+                        {% ifequal prop.1 t %}
+                            <span style="color: #0c0;"> {{ prop.1 }}</span> 
+                        {% else %}
+                            {% ifequal prop.1 f %} 
+                                <span style="color: #c00;"> {{ prop.1 }}</span> 
+                            {% else %} 
+                                {{ prop.1 }} 
+                            {% endifequal %}
+                        {% endifequal %}
+
+                    </td>
+                </tr>
+            {% endfor %}
+            </table>
+            <div style="color: #ccc; border-top: thin solid #ccc;margin-top:10px;">
+                DA load time: {{loadTime}}s <br/>
+                Device recognition time: {{recogTime}}s ({{recogPerSec}}/s)<br/>
+                Server name: {{server_name}}
+            </div>
+        </div>
+    </body>
+</html>
+
