@@ -3,7 +3,6 @@
 # Kevin Tom
 # Copyright 2008 Handi Mobility
 # www.handimobility.ca
-# sample change
 
 from django.conf.urls.defaults import *
 
