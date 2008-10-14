@@ -3,7 +3,6 @@
 # Kevin Tom
 # Copyright 2008 Handi Mobility
 # www.handimobility.ca
-# change
 
 from django.db import models
 from django.contrib import admin
